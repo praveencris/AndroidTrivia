@@ -16,10 +16,18 @@ class TitleFragment : Fragment() {
         val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater
                 , R.layout.fragment_title, container, false)
 
-        binding.playButton.setOnClickListener(){
+     /*   binding.playButton.setOnClickListener(){
             //Navigation.findNavController(it).navigate(R.id.action_titleFragment_to_gameFragment)
-            it.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
-        }
+
+            //it.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+        }*/
+        /*OR*/
+
+        //The complete onClickListener with Navigation using createNavigateOnClickListener
+        binding.playButton.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
+        )
+
         return binding.root
     }
 }
