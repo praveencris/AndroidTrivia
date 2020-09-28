@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--Id of Item should be exactly same as mentioned in navigation resource can't change id from aboutFragment-->
+    <item
+        android:id="@+id/aboutFragment"
+        android:title="@string/about" />
+</menu>
