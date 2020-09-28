@@ -20,6 +20,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -54,12 +55,10 @@ class GameWonFragment : Fragment() {
 
     private fun getShareIntent(): Intent {
         val args = GameWonFragmentArgs.fromBundle(arguments!!)
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT,
-                getString(R.string.share_success_text,
-                        args.numQuestions, args.numCorrect))
-        return intent
+        return ShareCompat.IntentBuilder.from(activity)
+                .setType("text/plain")
+                .setText(getString(R.string.share_success_text, args.numQuestions, args.numCorrect))
+                .intent
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
